@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/home"
+            android:title="@string/inicio" />
+        <item android:title="@string/polizas">
+            <menu>
+                <item
+                    android:id="@+id/nav_cliente"
+                    android:icon="@drawable/cliente"
+                    android:title="@string/cliente" />
+                <item
+                    android:id="@+id/nav_poliza"
+                    android:icon="@drawable/poliza"
+                    android:title="@string/poliza" />
+                <item
+                    android:id="@+id/nav_pagos"
+                    android:icon="@drawable/pagos"
+                    android:title="@string/pagos" />
+            </menu>
+        </item>
+    </group>
+
+    <item android:title="@string/empresa">
+        <menu>
+            <item
+                android:id="@+id/nav_imformacion"
+                android:icon="@drawable/info"
+                android:title="@string/info" />
+            <item
+                android:id="@+id/nav_mensajes"
+                android:icon="@drawable/mensaje"
+                android:title="@string/mensaje" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/nav_salir"
+        android:icon="@drawable/salir"
+        android:title="@string/sesion" />
+
+</menu>

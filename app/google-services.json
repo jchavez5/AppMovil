@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "323662653400",
+    "firebase_url": "https://aplicacionconsulta.firebaseio.com",
+    "project_id": "aplicacionconsulta",
+    "storage_bucket": "aplicacionconsulta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323662653400:android:e93ee14e3ccccae8",
+        "android_client_info": {
+          "package_name": "com.josechavez.aplicacionconsulta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323662653400-qf5qg5e1jpih8m9r28f8s620rldaaj4a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.josechavez.aplicacionconsulta",
+            "certificate_hash": "6e72bb380ae9834c78a8465da69f843983ddac06"
+          }
+        },
+        {
+          "client_id": "323662653400-16dd7r1k3huugtuqf376qb6mjq7uk8ak.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "323662653400-16dd7r1k3huugtuqf376qb6mjq7uk8ak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTaFY6jTDYqO0j0SZIiaW76duP9fuU7eY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323662653400-16dd7r1k3huugtuqf376qb6mjq7uk8ak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

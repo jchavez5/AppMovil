@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Aplicacion Consulta</string>
+    <string name="login">Inicio de Sesión</string>
+    <string name="singup">Crear cuenta</string>
+    <string name="email">Ingrese Email</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="nombreempresa">Nombre de la empresa</string>
+    <string name="direccion">Dirección</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="telefono">Telefono</string>
+    <string name="nombrecontacto">Nombre de contacto</string>
+    <string name="sexo">Sexo</string>
+    <string name="sexHombre">Hombre</string>
+    <string name="SexMujer">Mujer</string>
+    <string name="datosContacto">Datos de contacto</string>
+    <string name="terminos">Terminos y condiciones.</string>
+    <string name="Barranquilla">Barranquilla</string>
+    <string name="Sincelejo">Sincelejo</string>
+    <string name="Valledupar">Valledupar</string>
+    <string name="select_image">Seleciona una imagen</string>
+    <string name="errorImagen">Error al subir la imagen</string>
+
+    <string-array name="lista_Ciudades">
+        <item>@string/Barranquilla</item>
+        <item>@string/Sincelejo</item>
+        <item>@string/Valledupar</item>
+    </string-array>
+    <string name="title_activity_inicio">Inicio</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="inicio">Inicio</string>
+    <string name="poliza">Polizas</string>
+    <string name="cliente">Cliente</string>
+    <string name="pagos">Pagos</string>
+    <string name="empresa">Empresa</string>
+    <string name="info">Imformacion</string>
+    <string name="mensaje">Mensajeria</string>
+    <string name="polizas">Poliza</string>
+    <string name="salir">Salir</string>
+    <string name="sesion">Cerrar sesion</string>
+    <string name="crearCliente">Crear cliente</string>
+    <string name="consultaCliente">Consultar</string>
+    <string name="crear">Crear</string>
+</resources>
