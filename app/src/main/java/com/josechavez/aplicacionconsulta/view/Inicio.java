@@ -3,10 +3,6 @@ package com.josechavez.aplicacionconsulta.view;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,11 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,11 +26,14 @@ import com.google.firebase.storage.StorageReference;
 import com.josechavez.aplicacionconsulta.R;
 import com.josechavez.aplicacionconsulta.clases.DB;
 import com.josechavez.aplicacionconsulta.clases.Empresa;
-import com.josechavez.aplicacionconsulta.fragment.ClienteFragment;
-import com.squareup.picasso.Picasso;
+import com.josechavez.aplicacionconsulta.clases.Utilidades;
+import com.josechavez.aplicacionconsulta.fragment.ChatFragment;
+import com.josechavez.aplicacionconsulta.fragment.ContenedorClienteFragment;
+import com.josechavez.aplicacionconsulta.fragment.PagoFragment;
+import com.josechavez.aplicacionconsulta.fragment.PolizaFragment;
 
 public class Inicio extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener ,ContenedorClienteFragment.OnFragmentInteractionListener{
     private ImageView Perfil;
     private TextView txtNombre,txtEmail;
     private Empresa empresa;
@@ -89,6 +85,8 @@ public class Inicio extends AppCompatActivity
 
             }
         });
+            //getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ChatFragment()).commit();
+
     }
 
     @Override
@@ -117,10 +115,16 @@ public class Inicio extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cliente) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ClienteFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ContenedorClienteFragment()).commit();
             getSupportActionBar().setTitle(getResources().getString(R.string.cliente));
-
-        } else if (id == R.id.nav_salir) {
+        } else if (id == R.id.nav_poliza) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new PolizaFragment()).commit();
+            getSupportActionBar().setTitle(getResources().getString(R.string.poliza));
+        } else if (id == R.id.nav_pagos) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new PagoFragment()).commit();
+            getSupportActionBar().setTitle(getResources().getString(R.string.pagos));
+        }
+        else if (id == R.id.nav_salir) {
             i=new Intent(Inicio.this,pricipal.class);
             finish();
             startActivity(i);
@@ -129,5 +133,10 @@ public class Inicio extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
