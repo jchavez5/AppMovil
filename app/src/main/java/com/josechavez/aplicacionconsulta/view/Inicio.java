@@ -1,8 +1,11 @@
 package com.josechavez.aplicacionconsulta.view;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -85,8 +88,19 @@ public class Inicio extends AppCompatActivity
 
             }
         });
-            //getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ChatFragment()).commit();
-
+        if (Utilidades.cliente==1){
+            getSupportActionBar().setTitle(getResources().getString(R.string.cliente));
+        } if (Utilidades.pagos==1){
+            getSupportActionBar().setTitle(getResources().getString(R.string.pagos));
+        } if (Utilidades.poliza==1){
+            getSupportActionBar().setTitle(getResources().getString(R.string.poliza));
+            getSupportActionBar().setLogo(R.drawable.poliza);
+        }
+        if(Utilidades.validacionPantalla==true) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ChatFragment()).commit();
+            Utilidades.validacionPantalla=false;
+            getSupportActionBar().setTitle(getResources().getString(R.string.chat));
+        }
     }
 
     @Override
@@ -106,7 +120,14 @@ public class Inicio extends AppCompatActivity
         return true;
     }
 
-
+public void actionBarSet(String titulo, int drawable,
+                         int cliente,int pago,int poliza){
+    getSupportActionBar().setTitle(titulo);
+    getSupportActionBar().setLogo(drawable);
+    Utilidades.cliente=cliente;
+    Utilidades.pagos=pago;
+    Utilidades.poliza=poliza;
+}
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -116,13 +137,16 @@ public class Inicio extends AppCompatActivity
 
         if (id == R.id.nav_cliente) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ContenedorClienteFragment()).commit();
-            getSupportActionBar().setTitle(getResources().getString(R.string.cliente));
+            actionBarSet(getResources().getString(R.string.cliente),R.drawable.clienteblanco,1,0,0);
+
         } else if (id == R.id.nav_poliza) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new PolizaFragment()).commit();
-            getSupportActionBar().setTitle(getResources().getString(R.string.poliza));
+            actionBarSet(getResources().getString(R.string.poliza),R.drawable.polizablanco,0,0,1);
+
         } else if (id == R.id.nav_pagos) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new PagoFragment()).commit();
-            getSupportActionBar().setTitle(getResources().getString(R.string.pagos));
+            actionBarSet(getResources().getString(R.string.pagos),R.drawable.pagosblanco,0,1,0);
+
         }
         else if (id == R.id.nav_salir) {
             i=new Intent(Inicio.this,pricipal.class);

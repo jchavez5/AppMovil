@@ -72,8 +72,8 @@ public class ContenedorClienteFragment extends Fragment {
                pestañas = new TabLayout(getActivity());
                pestañas.setBackgroundColor(getResources().getColor(R.color.editTextColorWhite));
                pestañas.setTabTextColors(getResources().getColor(R.color.colorPrimary), getResources().getColor(R.color.colorPrimary));
-
                appBar.addView(pestañas);
+
 
                viewPager = vista.findViewById(R.id.idViewPager);
                llenarViewPager(viewPager);
@@ -87,6 +87,7 @@ public class ContenedorClienteFragment extends Fragment {
                });
                pestañas.setupWithViewPager(viewPager);
            }
+
            //pestañas.setTabGravity();
        }else {
            Utilidades.rotacion=1;
