@@ -42,7 +42,7 @@
     <string name="salir">Salir</string>
     <string name="sesion">Cerrar sesion</string>
     <string name="crearCliente">Crear cliente</string>
-    <string name="consultaCliente">Consultar</string>
+    <string name="consulta">Consultar</string>
     <string name="crear">Crear</string>
     <string name="title_activity_main">MainActivity</string>
 

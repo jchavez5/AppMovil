@@ -4,10 +4,19 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_inicio"
-            android:icon="@drawable/home"
-            android:title="@string/inicio" />
+        <item android:title="@string/empresa">
+            <menu>
+                <item
+                    android:id="@+id/nav_imformacion"
+                    android:icon="@drawable/info"
+                    android:title="@string/info" />
+                <item
+                    android:id="@+id/nav_mensajes"
+                    android:icon="@drawable/mensaje"
+                    android:title="@string/mensaje" />
+            </menu>
+        </item>
+
         <item android:title="@string/polizas">
             <menu>
                 <item
@@ -26,18 +35,7 @@
         </item>
     </group>
 
-    <item android:title="@string/empresa">
-        <menu>
-            <item
-                android:id="@+id/nav_imformacion"
-                android:icon="@drawable/info"
-                android:title="@string/info" />
-            <item
-                android:id="@+id/nav_mensajes"
-                android:icon="@drawable/mensaje"
-                android:title="@string/mensaje" />
-        </menu>
-    </item>
+
     <item
         android:id="@+id/nav_salir"
         android:icon="@drawable/salir"

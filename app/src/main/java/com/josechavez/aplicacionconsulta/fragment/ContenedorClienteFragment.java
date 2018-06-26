@@ -70,8 +70,10 @@ public class ContenedorClienteFragment extends Fragment {
            if (appBar == null) {
                appBar = (AppBarLayout) parent.findViewById(R.id.appBar);
                pestañas = new TabLayout(getActivity());
-               pestañas.setBackgroundColor(getResources().getColor(R.color.editTextColorWhite));
-               pestañas.setTabTextColors(getResources().getColor(R.color.colorPrimary), getResources().getColor(R.color.colorPrimary));
+               pestañas.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+               pestañas.setTabTextColors(getResources().getColor(R.color.colorAccentClaro), getResources().getColor(R.color.colorAccent));
+               pestañas.setSelectedTabIndicatorColor( getResources().getColor(R.color.colorAccent));
+
                appBar.addView(pestañas);
 
 
@@ -88,7 +90,6 @@ public class ContenedorClienteFragment extends Fragment {
                pestañas.setupWithViewPager(viewPager);
            }
 
-           //pestañas.setTabGravity();
        }else {
            Utilidades.rotacion=1;
        }

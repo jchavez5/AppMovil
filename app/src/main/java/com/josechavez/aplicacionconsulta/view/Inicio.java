@@ -1,11 +1,8 @@
 package com.josechavez.aplicacionconsulta.view;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -50,8 +47,8 @@ public class Inicio extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.editTextColorBlack));
         setSupportActionBar(toolbar);
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         Perfil = (ImageView) headerView.findViewById(R.id.imgProfile);
@@ -89,12 +86,13 @@ public class Inicio extends AppCompatActivity
             }
         });
         if (Utilidades.cliente==1){
-            getSupportActionBar().setTitle(getResources().getString(R.string.cliente));
+            actionBarSet2(getResources().getString(R.string.cliente),R.drawable.cliente);
+
         } if (Utilidades.pagos==1){
-            getSupportActionBar().setTitle(getResources().getString(R.string.pagos));
+            actionBarSet2(getResources().getString(R.string.pagos),R.drawable.pagos);
         } if (Utilidades.poliza==1){
-            getSupportActionBar().setTitle(getResources().getString(R.string.poliza));
-            getSupportActionBar().setLogo(R.drawable.poliza);
+
+            actionBarSet2(getResources().getString(R.string.poliza),R.drawable.poliza);
         }
         if(Utilidades.validacionPantalla==true) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ChatFragment()).commit();
@@ -116,8 +114,25 @@ public class Inicio extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.inicio, menu);
+            getMenuInflater().inflate(R.menu.menu_lateral, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id==R.id.nav_salirx){
+            i=new Intent(Inicio.this,pricipal.class);
+            finish();
+            startActivity(i);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void actionBarSet2(String titulo, int drawable){
+        getSupportActionBar().setTitle(titulo);
+        getSupportActionBar().setLogo(drawable);
     }
 
 public void actionBarSet(String titulo, int drawable,
@@ -127,6 +142,7 @@ public void actionBarSet(String titulo, int drawable,
     Utilidades.cliente=cliente;
     Utilidades.pagos=pago;
     Utilidades.poliza=poliza;
+
 }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -134,18 +150,18 @@ public void actionBarSet(String titulo, int drawable,
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_cliente) {
+
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ContenedorClienteFragment()).commit();
-            actionBarSet(getResources().getString(R.string.cliente),R.drawable.clienteblanco,1,0,0);
+            actionBarSet(getResources().getString(R.string.cliente),R.drawable.cliente,1,0,0);
 
         } else if (id == R.id.nav_poliza) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new PolizaFragment()).commit();
-            actionBarSet(getResources().getString(R.string.poliza),R.drawable.polizablanco,0,0,1);
+            actionBarSet(getResources().getString(R.string.poliza),R.drawable.cliente,0,0,1);
 
         } else if (id == R.id.nav_pagos) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new PagoFragment()).commit();
-            actionBarSet(getResources().getString(R.string.pagos),R.drawable.pagosblanco,0,1,0);
+            actionBarSet(getResources().getString(R.string.pagos),R.drawable.pagos,0,1,0);
 
         }
         else if (id == R.id.nav_salir) {
