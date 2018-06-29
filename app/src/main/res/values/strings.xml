@@ -19,7 +19,10 @@
     <string name="Valledupar">Valledupar</string>
     <string name="select_image">Seleciona una imagen</string>
     <string name="errorImagen">Error al subir la imagen</string>
-
+    <string-array name="lista_Sexo">
+        <item>@string/sexHombre</item>
+        <item>@string/SexMujer</item>
+    </string-array>
     <string-array name="lista_Ciudades">
         <item>@string/Barranquilla</item>
         <item>@string/Sincelejo</item>
@@ -51,4 +54,7 @@
     <string name="title_activity_cliente">Cliente</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="chat">Mensajes</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="cedula">Cedula</string>
 </resources>

@@ -2,6 +2,7 @@ package com.josechavez.aplicacionconsulta.view;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.media.MediaDataSource;
 import android.net.Uri;
@@ -54,6 +55,7 @@ public class CrearEmpresa extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_empresa);
         final ImageView view = (ImageView) findViewById(R.id.imgProfile);

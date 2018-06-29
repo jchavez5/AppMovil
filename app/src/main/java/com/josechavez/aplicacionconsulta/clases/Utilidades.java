@@ -7,6 +7,7 @@ package com.josechavez.aplicacionconsulta.clases;
 public class Utilidades {
     public static int rotacion =0;
     public static boolean validacionPantalla =true;
+    public static int ValidadcionDeBusqueda;
     public static int cliente=0;
     public static int pagos=0;
     public static int poliza=0;

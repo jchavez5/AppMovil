@@ -16,7 +16,7 @@ public class Empresa {
     private String nombreContacto;
     private String sexo;
     private String uri;
-    private ArrayList<Polizas> polizas= new ArrayList<>();
+    private ArrayList<Clientes> clientes= new ArrayList<>();
 
     public Empresa() {
     }
@@ -31,7 +31,7 @@ public class Empresa {
         this.nombreContacto = nombreContacto;
         this.sexo = sexo;
         this.uri=uri;
-        this.polizas= new ArrayList<Polizas>();
+        this.clientes= new ArrayList<Clientes>();
 
     }
 
@@ -107,12 +107,12 @@ public class Empresa {
         this.sexo = sexo;
     }
 
-    public ArrayList<Polizas> getPolizas() {
-        return polizas;
+    public ArrayList<Clientes> getClientes() {
+        return clientes;
     }
 
-    public void setPolizas(ArrayList<Polizas> polizas) {
-        this.polizas = polizas;
+    public void setClientes(ArrayList<Clientes> clientes) {
+        this.clientes = clientes;
     }
 
     @Override
@@ -127,7 +127,7 @@ public class Empresa {
                 ", nombreContacto='" + nombreContacto + '\'' +
                 ", sexo='" + sexo + '\'' +
                 ", uri='" + uri + '\'' +
-                ", polizas=" + polizas +
+                ", clientes=" + clientes +
                 '}';
     }
 

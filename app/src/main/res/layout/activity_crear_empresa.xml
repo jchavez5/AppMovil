@@ -8,6 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.josechavez.aplicacionconsulta.view.CrearEmpresa"
+    android:screenOrientation="portrait"
 
     >
     <ScrollView
@@ -52,20 +53,27 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/direccion" />
         </android.support.design.widget.TextInputLayout>
+
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/ciudad" />
+            android:text="@string/ciudad"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spnCiudad"
             android:layout_width="300dp"
-            android:layout_height="34dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="20dp"
+
             />
+
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/datosContacto" />
+            android:text="@string/datosContacto"
+            android:textStyle="bold" />
 
         <Space
             android:layout_width="300dp"

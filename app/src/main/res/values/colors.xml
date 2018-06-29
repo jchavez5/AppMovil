@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#B8B8B8</color>
     <color name="colorAccent">#00796B </color>
     <color name="colorAccentClaro">#009688   </color>
+    <color name="transparent">#00000000 </color>
+
 
     <color name="editTextColorWhite">#ffffff</color>
     <color name="editTextColorGris">#B8B8B8</color>

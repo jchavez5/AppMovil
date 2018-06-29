@@ -38,7 +38,6 @@ public class Inicio extends AppCompatActivity
     private TextView txtNombre,txtEmail;
     private Empresa empresa;
     private Intent i;
-
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
     private StorageReference storageReference;
@@ -47,7 +46,7 @@ public class Inicio extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.editTextColorBlack));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorAccent));
         setSupportActionBar(toolbar);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
@@ -94,11 +93,9 @@ public class Inicio extends AppCompatActivity
 
             actionBarSet2(getResources().getString(R.string.poliza),R.drawable.poliza);
         }
-        if(Utilidades.validacionPantalla==true) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ChatFragment()).commit();
-            Utilidades.validacionPantalla=false;
             getSupportActionBar().setTitle(getResources().getString(R.string.chat));
-        }
+
     }
 
     @Override
@@ -144,14 +141,21 @@ public void actionBarSet(String titulo, int drawable,
     Utilidades.poliza=poliza;
 
 }
+    public void setCheckable(MenuItem[] item,boolean b){
+        for (int i = 0; i < item.length; i++) {
+            item[i].setCheckable(b);
+        }
+
+    }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        final int id = item.getItemId();
         if (id == R.id.nav_cliente) {
-
+            // setCheckable(new MenuItem[]{},false);
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,new ContenedorClienteFragment()).commit();
             actionBarSet(getResources().getString(R.string.cliente),R.drawable.cliente,1,0,0);
 
@@ -169,6 +173,8 @@ public void actionBarSet(String titulo, int drawable,
             finish();
             startActivity(i);
         }
+        final NavigationView mainNavigationMenu_ = (NavigationView) findViewById(R.id.nav_view);
+        mainNavigationMenu_.getMenu().findItem(id).setCheckable(true);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

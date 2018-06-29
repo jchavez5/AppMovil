@@ -13,6 +13,7 @@ import java.util.List;
 public class SeccionesAdapter extends FragmentStatePagerAdapter {
     private final List<Fragment> listaFragment=new ArrayList<>();
     private final List<String> listaTitulos=new ArrayList<>();
+
     public SeccionesAdapter(android.support.v4.app.FragmentManager fm) {
         super(fm);
     }
