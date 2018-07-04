@@ -6,11 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,25 +15,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.josechavez.aplicacionconsulta.R;
-import com.josechavez.aplicacionconsulta.adapter.AdaptadorCliente;
 import com.josechavez.aplicacionconsulta.clases.Clientes;
 import com.josechavez.aplicacionconsulta.clases.DB;
 import com.josechavez.aplicacionconsulta.clases.Empresa;
 import com.josechavez.aplicacionconsulta.clases.Utilidades;
-import com.josechavez.aplicacionconsulta.view.CrearEmpresa;
 
-import java.nio.channels.CancelledKeyException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by Josechavez on 21/06/2018.
@@ -76,13 +63,34 @@ public class TabsCrearClienteFragment extends Fragment{
                 final String telefono=txttelefono.getText().toString().trim();
                 final String id = firebaseAuth.getCurrentUser().getUid();
                 //guardar();
-                buscarCedula();
-
+                //buscarCedula();
+                //validacion para la creacion de la base de datos
+                VerificacionDeBD_Creada();
 
             }
 
         });
         return view;
+    }
+    public void VerificacionDeBD_Creada(){
+        final String id = firebaseAuth.getCurrentUser().getUid();
+        DB.findById(id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Empresa c = dataSnapshot.getValue(Empresa.class);
+                    if (c.getClientes().size()==0){
+                        guardar();
+                    }else{
+                        buscarCedula();
+                    }
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
     }
     public void  guardar(){
         final String id = firebaseAuth.getCurrentUser().getUid();
@@ -112,6 +120,7 @@ public class TabsCrearClienteFragment extends Fragment{
         final String cedula = txtcedula.getText().toString().trim();
         final boolean[] valor = {false};
 
+
         DB.findById(id).child("clientes").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -131,7 +140,7 @@ public class TabsCrearClienteFragment extends Fragment{
                         Toast.makeText(getActivity(), "Guardado Exitosamente", Toast.LENGTH_SHORT).show();
                     } else {
                         Utilidades.ValidadcionDeBusqueda = 1;
-                        Toast.makeText(getActivity(), "Problema ya existe un dato en la base de datos ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "hubo problema ya existe la cedula digitada ", Toast.LENGTH_SHORT).show();
 
                     }
                 }

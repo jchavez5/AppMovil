@@ -11,12 +11,16 @@ import java.util.ArrayList;
 
 public class DB {
     private static String db1 = "Empresa";
-    private static ArrayList<Polizas> polizas  = new ArrayList();
+    private static ArrayList<Clientes> clientes = new ArrayList();
     private static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     public static void guardar(Empresa empresa) {
         databaseReference.child(db1).child(empresa.getId()).setValue(empresa);
         }
     public static DatabaseReference findById(String id){
         return databaseReference.child(db1  ).child(id);
+    }
+
+    public static void setClientes(ArrayList<Clientes> clientes) {
+        DB.clientes=clientes;
     }
 }

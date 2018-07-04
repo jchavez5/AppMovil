@@ -13,29 +13,36 @@ import com.josechavez.aplicacionconsulta.clases.Clientes;
 import java.util.ArrayList;
 
 /**
- * Created by Josechavez on 27/06/2018.
+ * Created by Josechavez on 29/06/2018.
  */
 
-public class AdaptadorCliente extends RecyclerView.Adapter<AdaptadorCliente.clienteViewHolder>  {
+public class ClientesAdaptador extends RecyclerView.Adapter<ClientesAdaptador.clienteViewHolder>  {
+
     private ArrayList<Clientes> clientes;
-    private OnclienteClickListener clickListener;
-    public AdaptadorCliente(ArrayList<Clientes> clientes, OnclienteClickListener clickListener){
+    private ClientesAdaptador.OnclienteClickListener clickListener;
+    public ClientesAdaptador(ArrayList<Clientes> clientes, ClientesAdaptador.OnclienteClickListener clickListener){
         this.clientes = clientes;
         this.clickListener = clickListener;
     }
 
+    public ClientesAdaptador(ArrayList<Clientes> clientes) {
+        this.clientes=clientes;
+    }
+
+
     @Override
-    public clienteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ClientesAdaptador.clienteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.fragment_tabs_consultar_cliente,parent,false);
-        return new clienteViewHolder(v);
+                inflate(R.layout.item_consulta_usuarios,parent,false);
+        return new ClientesAdaptador.clienteViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(clienteViewHolder holder, int position) {
+    public void onBindViewHolder(ClientesAdaptador.clienteViewHolder holder, int position) {
         final Clientes p = clientes.get(position);
-        holder.foto.setImageResource(R.drawable.profile);
         holder.cedula.setText(p.getCedula());
+        holder.nombre.setText(p.getNombre());
+        holder.telefono.setText(p.getTelefono());
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,20 +56,20 @@ public class AdaptadorCliente extends RecyclerView.Adapter<AdaptadorCliente.clie
         return clientes.size();
     }
 
+
+
     public static class clienteViewHolder extends RecyclerView.ViewHolder{
-        private ImageView foto;
         private TextView cedula;
         private TextView nombre;
-        private TextView barrio;
-        private TextView numero_deuda;
+        private TextView telefono;
         private View v;
 
         public clienteViewHolder(View itemView){
             super(itemView);
             v = itemView;
-            foto = v.findViewById(R.id.imgFoto);
             cedula = v.findViewById(R.id.lblCedula);
             nombre = v.findViewById(R.id.lblNombre);
+            telefono=v.findViewById(R.id.lblTelefono);
 
         }
 

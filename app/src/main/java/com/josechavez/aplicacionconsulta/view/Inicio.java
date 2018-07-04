@@ -1,6 +1,7 @@
 package com.josechavez.aplicacionconsulta.view;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -31,9 +32,11 @@ import com.josechavez.aplicacionconsulta.fragment.ChatFragment;
 import com.josechavez.aplicacionconsulta.fragment.ContenedorClienteFragment;
 import com.josechavez.aplicacionconsulta.fragment.PagoFragment;
 import com.josechavez.aplicacionconsulta.fragment.PolizaFragment;
+import com.josechavez.aplicacionconsulta.fragment.TabConsulClientesFragment;
 
 public class Inicio extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener ,ContenedorClienteFragment.OnFragmentInteractionListener{
+        implements NavigationView.OnNavigationItemSelectedListener ,ContenedorClienteFragment.OnFragmentInteractionListener,
+        TabConsulClientesFragment.OnFragmentInteractionListener{
     private ImageView Perfil;
     private TextView txtNombre,txtEmail;
     private Empresa empresa;
@@ -43,10 +46,11 @@ public class Inicio extends AppCompatActivity
     private StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.colorAccent));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorPrimary));
         setSupportActionBar(toolbar);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);

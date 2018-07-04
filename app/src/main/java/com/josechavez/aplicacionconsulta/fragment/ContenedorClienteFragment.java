@@ -107,7 +107,7 @@ public class ContenedorClienteFragment extends Fragment {
     private void llenarViewPager(ViewPager viewPager) {
         SeccionesAdapter adapter=new SeccionesAdapter(getFragmentManager());
         adapter.addFragment(new TabsCrearClienteFragment(),"CREAR");
-        adapter.addFragment(new TabsConsultarClienteFragment(),"CONSULTAR");
+        adapter.addFragment(new TabConsulClientesFragment(),"CONSULTAR");
         viewPager.setAdapter(adapter);
     }
 

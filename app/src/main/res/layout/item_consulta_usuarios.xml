@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lblNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/lblCedula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/lblTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"/>
+</LinearLayout>
+
